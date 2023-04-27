@@ -1,13 +1,14 @@
 # Gravity Forms to SFMC Data Extension Add-On
 
-Submit form submissions to a SalesForce Marketing Cloud Data Extension via Gravity Forms.
+Submit form entries to a SalesForce Marketing Cloud Data Extension via Gravity Forms.
 This plugin uses Salesforce Marketing Cloud Journey Builder REST API endpoints. The gravity form entry data is pushed to Data Extension through Journey Builder.
 Form submission fires the entry event that initiates the journey.
 
 Gather following information in order to set up the integration.
+
 ![alt text](gravityforms-sfmc-data-extension.png)
 
-Read more [here](https://rtcamp.com/blog/gravityform-to-salesforce-data-extension/) to get how to fetch the above details. 
+For more details and integration steps please [check this article](https://rtcamp.com/blog/gravityform-to-salesforce-data-extension/)
 
 ## Installation Guide
 
