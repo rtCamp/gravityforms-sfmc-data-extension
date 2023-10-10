@@ -1,0 +1,15 @@
+{
+  "name": "rtcamp/gravityforms-sfmc-data-extension",
+  "description": "Gravity Forms to SFMC Data Extension Add-On",
+  "type": "wordpress-plugin",
+  "license": "GPLv2",
+  "authors": [
+    {
+      "name": "rtCamp",
+      "homepage": "https://rtcamp.com/"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/rtCamp/gravityforms-sfmc-data-extension"
+  }
+}
