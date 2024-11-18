@@ -21,11 +21,13 @@ For more details and integration steps please [check this article](https://rtcam
 
 ## Contributors
 
-* **[kiranpotphode](https://github.com/kiranpotphode)**
+* **[Kiran Potphode](https://github.com/kiranpotphode)**
+* **[Abhishek Kumar](https://github.com/abhishekfdd)**
+* **[Sohel Mistry](https://github.com/sohel-py)**
 
 ## License :page_with_curl:
 
-This project is licensed under the GPL2 License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the GPL2 License - see the [LICENSE.MD](LICENSE.MD) file for details.
 ## Does this interest you?
 
 <a href="https://rtcamp.com/"><img src="https://rtcamp.com/wp-content/uploads/sites/2/2019/04/github-banner@2x.png" alt="Join us at rtCamp, we specialize in providing high performance enterprise WordPress solutions"></a>
