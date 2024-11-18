@@ -22,8 +22,11 @@ For more details and integration steps please [check this article](https://rtcam
 ## Contributors
 
 * **[Kiran Potphode](https://github.com/kiranpotphode)**
-* **[Abhishek Kumar](https://github.com/abhishekfdd)**
-* **[Sohel Mistry](https://github.com/sohel-py)**
+
+## WP Core and Plugins Auto-Update Reporting
+
+**PM:** [sohel.mistry@rtcamp.com](mailto:sohel.mistry@rtcamp.com)  
+**Devs:** [abhishek.kumar@rtcamp.com](mailto:abhishek.kumar@rtcamp.com)
 
 ## License :page_with_curl:
 
