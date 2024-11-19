@@ -21,11 +21,16 @@ For more details and integration steps please [check this article](https://rtcam
 
 ## Contributors
 
-* **[kiranpotphode](https://github.com/kiranpotphode)**
+* **[Kiran Potphode](https://github.com/kiranpotphode)**
+
+## WP Core and Plugins Auto-Update Reporting
+
+**PM:** [sohel.mistry@rtcamp.com](mailto:sohel.mistry@rtcamp.com)  
+**Devs:** [abhishek.kumar@rtcamp.com](mailto:abhishek.kumar@rtcamp.com)
 
 ## License :page_with_curl:
 
-This project is licensed under the GPL2 License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the GPL2 License - see the [LICENSE.MD](LICENSE.MD) file for details.
 ## Does this interest you?
 
 <a href="https://rtcamp.com/"><img src="https://rtcamp.com/wp-content/uploads/sites/2/2019/04/github-banner@2x.png" alt="Join us at rtCamp, we specialize in providing high performance enterprise WordPress solutions"></a>
