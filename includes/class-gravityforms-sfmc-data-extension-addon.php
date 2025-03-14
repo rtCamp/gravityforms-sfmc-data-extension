@@ -1,7 +1,7 @@
 <?php
 /**
  * File to include Registration addon functionality.
- * 
+ *
  * @package gravityforms-sfmc-data-extension.
  */
 
@@ -22,42 +22,42 @@ class Gravityforms_SFMC_Data_Extension_Addon extends GFFeedAddOn {
 	/**
 	 * Slug of addon.
 	 *
-	 * @var string 
+	 * @var string
 	 */
 	protected $_slug = 'gravityforms-sfmc-data-extension';
 
 	/**
 	 * Path to main file.
 	 *
-	 * @var string 
+	 * @var string
 	 */
 	protected $_path = 'gravityforms-sfmc-data-extension/gravityforms-sfmc-data-extension-addon.php';
 
 	/**
 	 * Full Path.
 	 *
-	 * @var string 
+	 * @var string
 	 */
 	protected $_full_path = __FILE__;
 
 	/**
 	 * Title of the form.
 	 *
-	 * @var string 
+	 * @var string
 	 */
 	protected $_title = 'Gravity Forms to SFMC Data Extension Add-On';
 
 	/**
 	 * Short title.
-	 * 
-	 * @var string 
+	 *
+	 * @var string
 	 */
 	protected $_short_title = 'Gravity Forms to SFMC Data Extension';
 
 	/**
 	 * Instance object.
 	 *
-	 * @var null 
+	 * @var null
 	 */
 	private static $_instance = null;
 
@@ -200,7 +200,6 @@ class Gravityforms_SFMC_Data_Extension_Addon extends GFFeedAddOn {
 			$sfmc_fields       = array_map( 'trim', explode( ',', $field->sfmc_field_key ) );
 			$entry_field_value = $this->get_field_value( $form, $entry, $field->id );
 
-
 			foreach ( $sfmc_fields as $sfmc_field ) {
 
 				if ( 'ContactKey' === $sfmc_field || 'SubscriberKey' === $sfmc_field || 'EmailAddress' === $sfmc_field ) {
@@ -210,18 +209,16 @@ class Gravityforms_SFMC_Data_Extension_Addon extends GFFeedAddOn {
 					$sfmc_data['Data']['EmailAddress']  = $entry_field_value;
 				} elseif ( 'EventDefinitionKey' === $sfmc_field ) {
 					$sfmc_data['EventDefinitionKey'] = $entry_field_value;
-				} else {
-					if ( isset( $sfmc_data['Data'][ $sfmc_field ] ) ) {
-						if ( strlen( $entry_field_value ) ) {
-							if ( strlen( $sfmc_data['Data'][ $sfmc_field ] ) ) {
-								$sfmc_data['Data'][ $sfmc_field ] .= ', ' . $entry_field_value;
-							} else {
-								$sfmc_data['Data'][ $sfmc_field ] .= $entry_field_value;
-							}
+				} elseif ( isset( $sfmc_data['Data'][ $sfmc_field ] ) ) {
+					if ( strlen( $entry_field_value ) ) {
+						if ( strlen( $sfmc_data['Data'][ $sfmc_field ] ) ) {
+							$sfmc_data['Data'][ $sfmc_field ] .= ', ' . $entry_field_value;
+						} else {
+							$sfmc_data['Data'][ $sfmc_field ] .= $entry_field_value;
 						}
-					} else {
-						$sfmc_data['Data'][ $sfmc_field ] = $entry_field_value;
 					}
+				} else {
+					$sfmc_data['Data'][ $sfmc_field ] = $entry_field_value;
 				}
 			}
 		}

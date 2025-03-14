@@ -54,8 +54,6 @@ class Gravityforms_SFMC_Data_Extension_Upsert {
 		$data['Data']['Submission_Date'] = gmdate( 'n/j/Y G:i:s' );
 		$data                            = wp_json_encode( $this->validate_lengths( $data ) );
 
-
-
 		// Send data to SF data extention.
 		$response = wp_safe_remote_post(
 			esc_url( 'https://' . $external_key . '.rest.marketingcloudapis.com/interaction/v1/events' ),
