@@ -4,7 +4,7 @@
  * Description: Submit the Gravityform entries to Salesforce Marketing Cloud Using Journey Entry Event.
  * Version: 1.0
  * Requires at least: 5.5
- * Tested up to: 5.5
+ * Tested up to: 6.7.2
  * Author URI: https://rtcamp.com
  * Plugin URI: https://rtcamp.com
  * Author: rtCamp, kiranpotphode
@@ -29,15 +29,14 @@ class Gravityforms_SFMC_Data_Extension_Bootstrap {
 			return;
 		}
 
-		require_once( plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-addon.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-auth.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-upsert.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-notify-error.php' );
-		require_once( plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-email.php' );
+		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-addon.php';
+		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-auth.php';
+		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-upsert.php';
+		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-notify-error.php';
+		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gravityforms-sfmc-data-extension-email.php';
 
 		GFAddOn::register( 'Gravityforms_SFMC_Data_Extension_Addon' );
 	}
-
 }
 
 add_action( 'gform_loaded', array( 'Gravityforms_SFMC_Data_Extension_Bootstrap', 'load' ), 5 );

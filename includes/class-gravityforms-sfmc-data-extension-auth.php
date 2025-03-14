@@ -44,30 +44,29 @@ class Gravityforms_SFMC_Data_Extension_Auth {
 		$account_id    = ( is_array( $creds ) && $creds['account_id'] ) ? $creds['account_id'] : '';
 		$external_key  = ( is_array( $creds ) && $creds['external_key'] ) ? $creds['external_key'] : '';
 
-
 		if ( empty( $client_secret ) || empty( $client_id ) || empty( $account_id ) ) {
 			return false;
 		}
 
-		$body = [
+		$body = array(
 			'grant_type'    => 'client_credentials',
 			'client_id'     => $client_id,
 			'client_secret' => $client_secret,
 			'account_id'    => $account_id,
-		];
+		);
 
 		$response = wp_safe_remote_post(
 			esc_url( 'https://' . $external_key . '.auth.marketingcloudapis.com/v2/token' ),
-			[
+			array(
 				'method'      => 'POST',
 				'httpversion' => '1.1',
 				'redirection' => 10,
 				'timeout'     => 50,
-				'headers'     => [
+				'headers'     => array(
 					'Content-Type' => 'application/json',
-				],
+				),
 				'body'        => wp_json_encode( $body ),
-			]
+			)
 		);
 
 		if ( is_wp_error( $response ) || 200 !== $response['response']['code'] ) {

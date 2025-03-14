@@ -19,10 +19,10 @@ class Gravityforms_SFMC_Data_Extension_Notify_Error {
 	 * @param string $error_message Error message.
 	 * @param array  $recipients List of recipients.
 	 */
-	static public function send_error_email( $post_url, $status_code, $error_message, $recipients ) {
+	public static function send_error_email( $post_url, $status_code, $error_message, $recipients ) {
 		if ( $post_url ) {
 			$subject = 'Alert: Salesforce API failure for ' . get_bloginfo( 'name' );
-			$message = Gravityforms_SFMC_Data_Extension_Notify_Error::get_error_email_template( $post_url, $status_code, $error_message );
+			$message = self::get_error_email_template( $post_url, $status_code, $error_message );
 
 			// Set mail type to text/html.
 			add_filter( 'wp_mail_content_type', array( 'Gravityforms_SFMC_Data_Extension_Notify_Error', 'set_html_email' ) );
@@ -41,7 +41,7 @@ class Gravityforms_SFMC_Data_Extension_Notify_Error {
 	 *
 	 * @return string Email format.
 	 */
-	static public function set_html_email() {
+	public static function set_html_email() {
 		return 'text/html';
 	}
 
@@ -54,7 +54,7 @@ class Gravityforms_SFMC_Data_Extension_Notify_Error {
 	 *
 	 * @return string Email template.
 	 */
-	static public function get_error_email_template( $post_url, $status_code, $error_message ) {
+	public static function get_error_email_template( $post_url, $status_code, $error_message ) {
 		$date = gmdate( 'F j, Y H:i:s' );
 
 		// =====
