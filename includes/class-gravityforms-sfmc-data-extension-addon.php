@@ -236,21 +236,28 @@ class Gravityforms_SFMC_Data_Extension_Addon extends GFFeedAddOn {
 
 		$sfmc_data = apply_filters( 'gravityform_sfmc_journey_entry_upsert_data', $sfmc_data, $entry, $form['id'] );
 
+		$this->log_debug( __METHOD__ . '(): Processing SFMC feed #' . $feed['id'] );
+		$this->log_debug( __METHOD__ . '(): Start SFMC upsert record operation.' );
 		$response = Gravityforms_SFMC_Data_Extension_Upsert::get_instance()->upsert_record( $sfmc_data, true, $this->get_sf_mc_credentials( $feed['meta'], $form ) );
 
 		if ( is_a( $response, 'WP_Error' ) ) {
+			$this->log_debug( __METHOD__ . '(): Failed SFMC upsert record due to WP_Error => ' . print_r( $response, true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
+
 			gform_update_meta( $entry['id'], 'gf_sfmc_entry_status-' . $feed['id'], 'Error' );
-			gform_update_meta( $entry['id'], 'gf_sfmc_entry_error-' . $feed['id'], 'Cannot connect to Salesforce' );
+			gform_update_meta( $entry['id'], 'gf_sfmc_entry_error-' . $feed['id'], 'Cannot connect to Salesforce: ' . var_export( $response, true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
 			Gravityforms_SFMC_Data_Extension_Email::process( $feed, $form, $entry );
 		} elseif ( 200 === $response['response']['code'] || 201 === $response['response']['code'] ) {
+			$this->log_debug( __METHOD__ . '(): SFMC upsert record success.' );
 			gform_update_meta( $entry['id'], 'gf_sfmc_entry_status-' . $feed['id'], 'OK' );
 			gform_update_meta( $entry['id'], 'gf_sfmc_entry_error-' . $feed['id'], '' );
 		} else {
+			$this->log_debug( __METHOD__ . '(): Failed SFMC upsert record due to SFMC Error => ' . print_r( $response, true ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
 			gform_update_meta( $entry['id'], 'gf_sfmc_entry_status-' . $feed['id'], 'Error: ' . $response['response']['code'] . ' ' . $response['response']['message'] );
 			$body = json_decode( $response['body'] );
 			gform_update_meta( $entry['id'], 'gf_sfmc_entry_error-' . $feed['id'], $body->message );
 			Gravityforms_SFMC_Data_Extension_Email::process( $feed, $form, $entry );
 		}
+		$this->log_debug( __METHOD__ . '(): Finish SFMC upsert record operation.' );
 
 		return;
 	}

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Gravity Forms to SFMC Data Extension Add-On
  * Description: Submit the Gravityform entries to Salesforce Marketing Cloud Using Journey Entry Event.
- * Version: 1.0
+ * Version: 1.0.1
  * Requires at least: 5.5
  * Tested up to: 6.7.2
  * Author URI: https://rtcamp.com
